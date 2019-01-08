@@ -1,0 +1,32 @@
+0. 목표 : 반응형 쇼핑몰
+
+1. 벤치마킹 쇼핑몰
+  - G마켓
+  - 옥션
+  -
+
+2. 개발환경
+  - 서버       : firebase
+  - DB         : mongoDB
+  - 개발언어
+    > 화면     : AngularJS(Blur Admin template)
+    > 백앤드   : NodeJS
+  - tools
+    > 개발     : VisualStudio Code
+    > DB       : robomongo(Studio 3T)
+  - 형상관리   : git - github
+
+3. 개발영역
+  - 주문
+    > 장바구니
+    > 주문내역
+  - 회원
+    > 가입
+    > 탈퇴
+    > 회원정보수정
+  - 관리자
+    > 메뉴관리
+    > 주문통계
+
+99. 참고 사이트
+    - https://github.com/devwon/nodeShop
