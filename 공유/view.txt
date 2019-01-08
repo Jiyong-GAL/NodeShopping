@@ -1,0 +1,17 @@
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+                                            VIEW REFERENCE
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+@ Author : HyeUngPark
+@ Date   : 2019.01.08
+ 
+Angular template reference URL   : https://akveo.github.io/blur-admin/
+gulp install     reference URL   : https://github.com/Swiip/generator-gulp-angular
+                                 : http://webclub.tistory.com/467
+grunt|gulp|webpack reference URL : https://jae-kwang.github.io/blog/2017/03/29/tool-each/
+
+
+gulp build :(dev)  gulp serve
+            (real) gulp serve:dist
+
+MEAN STACK 소개 URL              : https://www.a-mean-blog.com/ko/blog/MEAN-Stack/_/MEAN-Stack-%EC%86%8C%EA%B0%9C
+□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
