@@ -2,8 +2,7 @@
 
 1. 벤치마킹 쇼핑몰
   - G마켓
-  - 옥션
-  -
+  - 무신사
 
 2. 개발환경
   - 서버       : firebase
@@ -11,12 +10,17 @@
   - 개발언어
     > 화면     : AngularJS(Blur Admin template)
     > 백앤드   : NodeJS
+    > 빌드도구 : Yo | bower | gulp & grunt & webpack
   - tools
     > 개발     : VisualStudio Code
     > DB       : robomongo(Studio 3T)
   - 형상관리   : git - github
 
 3. 개발영역
+  - 상품
+    > 카테고리
+    > 메인화면
+    > 상세화면
   - 주문
     > 장바구니
     > 주문내역
