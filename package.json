@@ -44,6 +44,26 @@
     "wrench": "~1.5.8"
   },
   "scripts": {
-    "postinstall": "bower install"
-  }
+    "postinstall": "bower install",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "update": "^0.7.4"
+  },
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "\"# NodeShopping\"",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiyong-GAL/NodeShopping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jiyong-GAL/NodeShopping/issues"
+  },
+  "homepage": "https://github.com/Jiyong-GAL/NodeShopping#readme"
 }
