@@ -12,7 +12,7 @@ var server = app.listen(port,function(){
 app.use(serveStatic(path.join(__dirname,'/release')));
 
 app.get('/', function(req,res){
-    
+    res.redirect('./index.html');
 });
 
 app.get('/404', function (req, res) {    
