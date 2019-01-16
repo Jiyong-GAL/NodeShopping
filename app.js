@@ -7,7 +7,7 @@ var path = require('path');
 app.use(serveStatic(path.join(__dirname,'/src')));
 
 app.get('/', function(req,res){
-    res.redirect('./index.html');
+    //res.redirect('./index.html');
 });
 
 app.get('/expressTest', function (req, res) {    

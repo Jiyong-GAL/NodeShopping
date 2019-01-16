@@ -35,7 +35,7 @@ gulp.task('inject', ['scripts', 'styles', 'injectAuth', 'inject404', 'copyVendor
     addRootSlash: false
   };
 
-  return gulp.src(path.join(conf.paths.src, '/index.html'))
+  return gulp.src(path.join(conf.paths.src, '/auth.html'))
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
