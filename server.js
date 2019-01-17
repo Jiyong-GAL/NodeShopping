@@ -15,14 +15,15 @@ app.use(serveStatic(path.join(__dirname,'/release')));
 
 app.get('/', function(req,res){
     // db접속 ip 시간 기록
-    var ipAddress;
-    var forwardedIpsStr = req.header('x-forwarded-for');
-        if(forwardedIpsStr){
-            var forwardedIps = forwardedIpsStr.split(',');
-            ipAddress = forwardedIps[0];
-        }else{
-            ipAddress = req.connection.remoteAddress;
-        }
+    // var ipAddress;
+    // var forwardedIpsStr = req.header('x-forwarded-for');
+    //     if(forwardedIpsStr){
+    //         var forwardedIps = forwardedIpsStr.split(',');
+    //         ipAddress = forwardedIps[0];
+    //     }else{
+    //         ipAddress = req.connection.remoteAddress;
+    //     }
+    var ipAddress = req.connection.remoteAddress;
     console.log("IP >>> ",ipAddress);
     test.create({
             connectIP:ipAddress
