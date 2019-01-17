@@ -13,7 +13,6 @@ app.use(serveStatic(path.join(__dirname,'/release')));
 
 app.get('/', function(req,res){
     res.redirect('./auth.html');
-    console.log("여기 타니?");
 });
 
 app.get('/404', function (req, res) {    
