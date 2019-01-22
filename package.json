@@ -72,6 +72,7 @@
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "moment": "^2.23.0",
+    "mongoose": "^5.4.4",
     "serve-static": "^1.13.2",
     "update": "^0.7.4",
     "winston": "^3.1.0",
