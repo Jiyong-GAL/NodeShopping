@@ -29,7 +29,7 @@ app.get('/', function(req,res){
             connectIP:ipAddress
             ,connectTime:new Date()
         });
-    res.redirect('./reg.html');
+    res.redirect('./auth.html');
 });
 
 app.get('/404', function (req, res) {    
