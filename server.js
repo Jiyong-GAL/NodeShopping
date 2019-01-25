@@ -9,12 +9,12 @@ var test = require('./testSchema');
 
 var server = app.listen(port,function(){
     console.log("★★★ Server Started ★★★");
+    app.use(serveStatic(path.join(__dirname,'/release')));
 });
-
-app.use(serveStatic(path.join(__dirname,'/release')));
 
 app.get('/', function(req,res){
     // db접속 ip 시간 기록
+    console.log("★★★ get(/) ★★★");
     var ipAddress;
     var forwardedIpsStr = req.header('x-forwarded-for');
         if(forwardedIpsStr){
@@ -29,7 +29,7 @@ app.get('/', function(req,res){
             connectIP:ipAddress
             ,connectTime:new Date()
         });
-    res.redirect('./reg.html');
+    res.redirect('./auth.html');
 });
 
 app.get('/404', function (req, res) {    
