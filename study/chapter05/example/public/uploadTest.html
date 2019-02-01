@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            파일 업로드 테스트
+        </title>
+        <script>
+            function upload(){
+                var form = document.getElementById('fileForm');
+                console.log(form);
+                form.setAttribute("method", 'post');
+                form.setAttribute("action", '../../fileUpload');
+                form.submit();
+            }
+        </script>
+    </head>
+    <body>
+        <h2>파일 업로드 테스트</h2>
+        <form method='post' id="fileForm" enctype="multipart/form-data">
+            <table align='center'>
+                <tr>
+                    <th>업로드 할 파일 선택 :</th>
+                    <td><input type='file' name='inFile'></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align='center'>
+                        <input type='button' value='전송' onClick="javascript:upload()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
