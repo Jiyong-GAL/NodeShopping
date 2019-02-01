@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+            router 테스트
+        </title>
+        <script>
+            function login(){
+                var form = document.getElementById('loginForm');
+                console.log(form);
+                form.setAttribute("method", 'post');
+                form.setAttribute("action", '/process/login');
+                form.submit();
+            }
+        </script>
+    </head>
+    <body>
+        <h2>router 테스트</h2>
+        <form method='post' id="loginForm">
+            <table align='center'>
+                <tr>
+                    <th>아이디</th>
+                    <td><input type='text' name='inId'></td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td><input type='password' name='inPw'></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align='center'>
+                        <input type='button' value='로그인' onClick="javascript:login()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
