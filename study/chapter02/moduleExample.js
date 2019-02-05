@@ -38,7 +38,7 @@ console.log('디렉터리 : %s, 파일 이름 : %s, 확장자 : %s', dirname, ba
 // - format(urlObj) : URL 객체를 URL 문자열로 변환해 리턴합니다.
 // - resolve(from, to) : 매개 변수를 조합하여 완전한 URL 문자열을  생성하여 리턴합니다.
 
-var url =' require(url'); 
+var url =require('url'); 
 var parsedObj = url.parse('http://www.naver.com');
 console.log(parsedObj);
 
