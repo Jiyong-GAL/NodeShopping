@@ -67,6 +67,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "data-utils": "0.0.2",
     "date-utils": "^1.2.21",
     "express": "^4.16.4",
