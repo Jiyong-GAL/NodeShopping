@@ -50,5 +50,6 @@ gulp.1
 build
 .tmp
 
+/release
 /src/release
 /bower_components
