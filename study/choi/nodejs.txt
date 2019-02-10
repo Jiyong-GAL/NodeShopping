@@ -1,0 +1,207 @@
+Node.js를 사용하여 게시판 만들기 위한 초기 설정
+
+
+<1> Node.js란?
+
+개념
+
+Node.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다. 
+Node.js는 네트워크 애플리케이션(특히 서버 사이드) 개발에 사용되는 소프트웨어 플랫폼입니다.
+
+
+<2> Node.js 설치
+
+1.Node.js 설치 - npm은 자동 생성됨
+
+Node.js 홈페이지 https://nodejs.org/ko/에 접속하여 Node.js 설치를 진행합니다.
+
+Node.js 설치 진행에 앞서 두 가지 버전이 있습니다.
+ -LTS(Long Term Supported) 버전: 서버 환경에서 장기적으로 안정적인 지원을 제공. 안정성과 보안성에 초점을 두어 개발.
+ -Stable 버전: 잦은 업데이트를 진행. 추가적인 기능 개발과 기존 API 기능 개선에 우선함.
+따라서 서버운영에는 LTS를 쓰고, 개인 개발 및 테스트에는 Stable버전을 설치해서 진행하면 됩니다.
+
+2.node & npm 버전 확인
+
+설치 확인을 위해 [Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+node -v, npm -v 를 입력하여 node와 npm 버전을 확인합니다. 
+
+3.node를 이용하여 hello 출력
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+node를 입력하면 REAL commnad창으로 들어가집니다. 
+console.log('hello') 를 입력하면 hello가 출력되는 것을 확인 할 수 있습니다.
+[ctrl]+[c]를 두 번 입력하면 실행이 종료됩니다.
+
+4.NPM이란? 
+
+NPM(Node Package Manager)은 JavaScript 및 세계 최대의 소프트웨어 레지스트리 패키지 관리자로 Node.js를 설치하면 같이 설치되어 사용할 수 있습니다.
+NPM에는 Node.js에서 사용되는 각종 코드 패키지들이 모여있고, 우리는 그 패키지를 다운로드 받아 사용할 수 있습니다.
+좀 더 쉽게NPM은 Node.js 생태계의 앱스토어나 플레이스토어 같은 역할을 합니다.
+NPM레지스트리에는 640,000개가 넘는 패키지가 포함되어 있으며, 패키지는 의존성(dependencies) 및 버전을 추적할 수 있도록 구성됩니다.
+
+
+<3> Atom 설치
+
+Atom은 Github에서 만든 에디터로써 다양한 프로그래밍 언어의 편집이 가능하고 웹언어를 사용하여 에디터를 커스터마이징 할 수 있습니다.
+자바스크립트 프로그래밍을 위해 Atom 홈페이지 https://atom.io/에 접속하여 Atom 설치를 진행합니다.
+
+
+<4> 작업할 프로젝트 폴더 생성
+
+1.mkdir nodetest / cd nodetest
+
+작업할 프로젝트 폴더를 C드라이브 아래 nodetest 이름으로 생성해 줍니다.
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+아래와 같이 입력해줍니다.
+
+# cd C:\ // C 드라이드로 이동합니다.
+# mkdir nodetest // mkdir명령어로 nodetest 폴더를 생성합니다.
+# dir //  경로의 폴더 및 파일들이 나열됩니다. nodetest  파일이 잘 생성됬는지 확인합니다.
+# cd nodetest // nodetest 폴더 경로로 이동합니다.
+
+
+<5> npm으로 외부 모듈 패키지 설치 방법
+
+NPM 홈페이지 : https://www.npmjs.com/
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\nodetest 를 입력하여 이전에 생성한 프로젝트 폴더 경로로 이동합니다.
+npm install [모듈이름] 명령을 입력합니다.
+홈페이지에서 필요한 모듈 이름을 검색하여 사용하시면 됩니다.
+
+자주 사용되는 npm 목록:
+
+npm install uglify-js -g
+uglifyjs --help
+uglifyjs pretty.js
+uglifyjs pretty.js -m
+uglifyjs pretty.js -o pretty.min.js -m
+npm install express --save
+npm install underscore --save
+npm install sample --save
+npm install orientjs --save
+npm install supervisor -g
+
+
+<6> npm init (초기화)
+
+1.npm init
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\nodetest 를 입력하여 이전에 생성한 프로젝트 폴더 경로로 이동합니다.
+npm init 명령을 실행하여 프로젝트 폴더를 npm의 패키지로 초기화해줍니다. (이유는 뒤에서 설명합니다.)
+이후에 나오는 package name, version, description, entry point, test command, git repository, keywords, author, license 질문에 [Enter]키를 눌러 기본 값으로 설정합니다. 
+프로젝트 폴더 안에 package.json 파일이 생성된 것을 확인할 수 있습니다.
+*만약 질문 없이 바로 시작하고 싶다면 npm init -y(--yes) 혹은 npm init -f(--force) 명령을 실행시키면 됩니다.
+
+2.npm init을 하는 이유?
+
+프로젝트 경로에서 npm install을 이용하여 패키지를 설치하는 경우 해당 프로젝트 이외에는 사용할 수 없다는 문제점이 있습니다.
+만약 여러 프로젝트에서 동일한 외부 모듈을 사용하는 경우 각각의 프로젝트마다 npm install을 해주어야 하는 번거로움이 생기게 됩니다.
+이러한 문제를 해결하기 위한 방법으로는 외부 모듈이 설치되는 node_modules 디렉터리를 프로젝트들의 상위 디렉터리로 옮기는 방법이 있습니다.
+node.js는 프로젝트가 실행될 때 필요한 모듈이 현재 프로젝트의 node_modules 디렉터리에 존재하는지 확인 후 없으면 상위 디렉터리의 node_modules 안에 디렉터리가 있는지 검사하기 때문입니다. 
+만약 상위에도 존재하지 않는 경우 더 상위 디렉터리의 node_modules을 검사하는 식으로 동작합니다.
+프로젝트에서 사용하는 외부 모듈이 많아지게 되면 관리하기가 번거로워지고 새로운 프로젝트를 진행하는 경우에 
+필요한 모듈이 많은 경우 패키지 수만큼 npm 명령을 사용해야하는 번거로움이 생깁니다.
+이러한 경우 필요한 패키지들의 목록을 파일로 정리해놓고 목록 파일을 이용하여 단 한번의 명령어로 필요한 패키지들을 모두 설치할 수 있습니다. 
+이러한 패키지 정의 파일을 package.json 파일이라고 합니다.
+
+3.package.json 이란?
+
+package.json은 프로젝트 정보와 의존성(dependencies)을 관리하는 문서입니다.
+이미 작성된 package.json 문서는 어느 곳에서도 동일한 개발 환경을 구축할 수 있게 해줍니다.
+
+4.package-lock.json 이란?
+
+package.json이 동일한 개발 환경 구축을 위한 정보를 가지고 있지만, 다양한 경우에 의해 동일한 개발 환경 구축에 문제가 발생할 수 있습니다.
+이를 방지하기 위해 npm으로 node_modules의 구성 트리 또는 package.json을 수정하는 모든 작업에 대해 package-lock.json이 자동으로 생성됩니다.
+모든 작업에 대해 자동 생성하므로 의존성 업데이트와 같은 버전 변경에 대해서도 동일한 모듈 트리를 생성할 수 있게 됩니다.
+
+
+<5> Express 패키지 설치
+
+Express.js는 Node.js의 핵심 모듈인 HTTP와 Connect 컴포넌트를 기반으로 하는 웹 프레임워크입니다.
+
+Express 홈페이지: http://expressjs.com/를 참고합니다.
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\nodetest 를 입력하여 이전에 생성한 프로젝트 폴더 경로로 이동합니다.
+# npm install express --save 명령을 실행시킵니다.
+package.json을 통해 express가 설치된 것을 확인할 수 있습니다.
+
+
+<6> Express 실행하기
+
+1.app.js 파일을 생성
+
+앞서 설치한 Atom을 실행합니다.
+Atom 상단 [File] - [Add Project Folder]를 클릭한 후 이전에 생성한 nodetest 프로젝트 폴더를 선택하여 열어줍니다.
+해당 프로젝트 폴더가 화면에 보여집니다.
+폴더에 오른쪽 마우스키를 누르고 [New File] 를 클릭하여 app.js 파일을 생성해 줍니다.
+
+2.express()
+
+Express 홈페이지: http://expressjs.com/를 참고합니다.
+
+Express 홈페이지 상단 [API reference] - [4.x]를 클릭하면 express() 기능에 대해 자세히 기술되어 있습니다.
+앞서 생성한 app.js 파일을 열어 아래와 같이 작성합니다.
+
+var express = require('express');// express모듈 사용
+var app = express();// express 함수를 변수로 선언
+
+app.get('/', function(req, res){//  앱은 루트 URL(/) 또는 라우트에 대한 요청에 'Hello World!'로 응답합니다. 다른 모든 경로에대해서는 404 Not Found로 응답합니다.
+  res.send('Hello World!');
+});
+
+app.listen(3000, function(){// 앱은 서버를 시작하며 3000번 포드에서 연결을 청취합니다.
+  console.log('Connected, 3000 port!');
+})
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\nodetest 를 입력하여 이전에 생성한 프로젝트 폴더 경로로 이동합니다.
+# node app.js 명령을 이용하여 앱을 실행시킵니다.
+윈도우 명령프롬프트(cmd)에서 'Connected, 3000 port!' 문구를 확인합니다.
+그 후 웹 브라우저를 열어 localhost:3000/을 입력하여 'Hello World!' 문구를 확인합니다.
+
+
+<7> DB 연동 - OrientDB
+
+1.OrientDB
+
+OrientDB 홈페이지: https://orientdb.com/ 에서 OrientDB를 DOWNLOAD합니다.
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\orientdb-3.0.1 명령을 입력하여 OrientDB가 설치된 경로로 이동시켜 줍니다.
+# server.bat 명령을 입력하여 OrientDB를 실행시킵니다.
+출력된 내용 중 INFO  Listening http connections on 0.0.0.0:2480 (protocol v.10, socket=default) 부분을 찾습니다. 여기서 2480은 포트번호입니다.
+웹 브라우저에서 localhost:2480 라고 입력해줍니다.
+DB 접근에 성공한 것을 확인 할 수 있습니다.
+
+2.OrientJS
+
+OrientJS: https://orientdb.com/docs/last/OrientJS-Server.html 참고하여 node.js에서 orientdb를 사용합니다.
+
+3.npm install orientjs --save
+
+[Win]+[R] 키를 이용하여 윈도우 명령프롬프트(cmd)를 엽니다.
+# cd C:\nodetest 를 입력하여 이전에 생성한 프로젝트 폴더 경로로 이동합니다.
+# npm install orientjs --save 명령을 실행시킵니다.
+OrientDB와 연동하기 위해 app.js 파일에 아래와 같이 추가합니다.
+
+예시)
+
+var OrientDB = require('orientjs'); // orientjs 모듈 사용
+var server = OrientDB({
+   host:       'localhost',
+   port:       2424,
+   username:   'root',
+   password:   '1111'
+});
+var db = server.use('webix'); //OrientDB에서 생성한 webix database와 연결
+
+
+
+
+
+
+
