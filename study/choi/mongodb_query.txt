@@ -1,0 +1,350 @@
+MongoDB Get Strarted
+
+npm install mongodb
+
+MongoDB Create Database
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  db.close();
+});
+
+
+
+MongoDB Create Collection(table)
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.createCollection("customers", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+    db.close();
+  });
+});
+
+MongoDB Insert
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myobj = { name: "Company Inc", address: "Highway 37" };
+  dbo.collection("customers").insertOne(myobj, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+    db.close();
+  });
+});
+
+MongoDB Find
+
+Find One
+
+findOne() -  returns the first occurrence in the selection.
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").findOne({}, function(err, result) {
+    if (err) throw err;
+    console.log(result.name);
+    db.close();
+  });
+});
+
+Find All
+
+find() -  returns all occurrences in the selection.
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").find({}).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+Find Some
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").find({}, { projection: { _id: 0, name: 1, address: 1 } }).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+
+
+MongoDB Query
+
+Filter the Result
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var query = { address: "Park Lane 38" };
+  dbo.collection("customers").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+Filter With Regular Expressions
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var query = { address: /^S/ };
+  dbo.collection("customers").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+MongoDB Sort -  to sort the result in ascending or descending order.
+
+Sort the Result
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var mysort = { name: 1 };
+  dbo.collection("customers").find().sort(mysort).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+Sort Descending
+
+{ name: 1 } // ascending
+{ name: -1 } // descending
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var mysort = { name: -1 };
+  dbo.collection("customers").find().sort(mysort).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+MongoDB Delete
+
+Delete Document
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myquery = { address: 'Mountain 21' };
+  dbo.collection("customers").deleteOne(myquery, function(err, obj) {
+    if (err) throw err;
+    console.log("1 document deleted");
+    db.close();
+  });
+});
+
+Delete Many
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myquery = { address: /^O/ };
+  dbo.collection("customers").deleteMany(myquery, function(err, obj) {
+    if (err) throw err;
+    console.log(obj.result.n + " document(s) deleted");
+    db.close();
+  });
+});
+
+The Result Object
+
+{ n: 2, ok: 1 }
+console.log(obj.result.n);
+
+
+MongoDB Drop Collection
+
+Droup Collection
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").drop(function(err, delOK) {
+    if (err) throw err;
+    if (delOK) console.log("Collection deleted");
+    db.close();
+  });
+});
+
+db.dropCollection
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.dropCollection("customers", function(err, delOK) {
+    if (err) throw err;
+    if (delOK) console.log("Collection deleted");
+    db.close();
+  });
+});
+
+MongoDB Update
+
+Update Document
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://127.0.0.1:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myquery = { address: "Valley 345" };
+  var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
+  dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log("1 document updated");
+    db.close();
+  });
+});
+
+Update Only Specific Fields
+
+...
+  var myquery = { address: "Valley 345" };
+  var newvalues = { $set: { address: "Canyon 123" } };
+  dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+...
+
+Update Many Document
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://127.0.0.1:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myquery = { address: /^S/ };
+  var newvalues = {$set: {name: "Minnie"} };
+  dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log(res.result.nModified + " document(s) updated");
+    db.close();
+  });
+});
+
+The Result Object
+
+{ n: 1, nModified: 2, ok: 1 }
+console.log(res.result.nModified);
+
+MongoDB Limit
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").find().limit(5).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+MongoDB Join
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://127.0.0.1:27017/";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection('orders').aggregate([
+    { $lookup:
+       {
+         from: 'products',
+         localField: 'product_id',
+         foreignField: '_id',
+         as: 'orderdetails'
+       }
+     }
+    ]).toArray(function(err, res) {
+    if (err) throw err;
+    console.log(JSON.stringify(res));
+    db.close();
+  });
+});
+
+orders
+
+[
+  { _id: 1, product_id: 154, status: 1 }
+]
+
+products
+
+[
+  { _id: 154, name: 'Chocolate Heaven' },
+  { _id: 155, name: 'Tasty Lemons' },
+  { _id: 156, name: 'Vanilla Dreams' }
+]
+
+result
+
+[
+  { "_id": 1, "product_id": 154, "status": 1, "orderdetails": [
+    { "_id": 154, "name": "Chocolate Heaven" } ]
+  }
+]
