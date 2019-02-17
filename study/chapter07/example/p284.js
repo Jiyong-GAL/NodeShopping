@@ -17,7 +17,7 @@ exports.group = {
 };
 
 /* 
-    exprots = {
+    exports = {
 
     };
     의 형태로 할당하면 새로운 변수 exports로 인식하기때문에 사용 불가능

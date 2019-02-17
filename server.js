@@ -14,11 +14,12 @@ var userRouter = require('./route/user/userRouter');
 var server = app.listen(port,function(){
     console.log("★★★ Server Started ★★★");
     app.use(serveStatic(path.join(__dirname,'/release')));
+    console.log('노드몬 테스트');
 });
-
 app.use('/',commonRouter);
 app.use('/',connectionRouter);
 app.use('/',userRouter);
+
 // error handler
 // var expressErrorHandler = require('express-error-handler');
 // var errorHandler = expressErrorHandler({
