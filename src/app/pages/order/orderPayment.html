@@ -1,12 +1,12 @@
 <!-- 
     제휴할인 및 결제 화면
 
-    필요 이벤트 : 1. 주문 목록 수정/삭제 처리
-                 2. 신규배송지 저장 버튼 클릭시 신규 배송지 목록에 추가
-                 3. 이전 버튼 : 주문을 클릭한 화면으로 이동
-                    다음 버튼 : 현재 값들을 유지하고
-    DB 필요 데이터 : 1. 상품정보(이미지, 상품명, 판매사, 수량, 상품옵션, 상품가격)
-                    2. 회원정보(배송지)
+    필요 이벤트 : 1. 제휴사 리스트 반복
+                 2. 포인트 사용 시 금액 계산
+                 3. 결제모듈 연동 필요
+                 4. 결제완료 체크
+    DB 필요 데이터 : 1. 상품정보(상품금액, 배송비)
+                    2. 제휴정보(제휴사, 제휴포인트)
  -->
 <div class="panel-body">
     <ba-wizard class="ng-scope">
@@ -33,24 +33,95 @@
                                             제휴 할인 반복 구간
                                             <tr ng-repeat="user in users" class="editable-row"> 
                                         -->
-                                        <div>
+                                        <div class="col-md-12">
                                             <img ng-src="assets/img/theme/icon/kameleon/Cheese.svg" src="assets/img/theme/icon/kameleon/Cheese.svg"> 
                                             <input type="text" class="form-control" id="inputWarning1"style="width:100px;display:inline;">
                                             <button class="btn btn-primary editable-table-button">사용</button>
                                             <button class="btn btn-danger editable-table-button" style="width:100px">전액 사용</button>
                                         </div>
-                                        <div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="input05" placeholder="0원사용" disabled="" style="width:100%">
+                                        </div>
+                                        <div class="col-md-12">
                                             <img ng-src="assets/img/theme/icon/kameleon/Medal-2.svg" src="assets/img/theme/icon/kameleon/Medal-2.svg">
                                             <input type="text" class="form-control" id="inputWarning1"style="width:100px;display:inline;">
                                             <button class="btn btn-primary editable-table-button">사용</button>
                                             <button class="btn btn-danger editable-table-button" style="width:100px">전액 사용</button>
                                         </div>
-                                    </table>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" id="input05" placeholder="0원사용" disabled="" style="width:100%">
+                                        </div>
                                 </div>
                         </div>
                     </form>
-        </ba-wizard-step>
+                    <br><br>
+                    <h1>결제 방식 선택</h1>
+                    <!-- 결제 방식 선택 -->
+                    <div class="input-demo radio-demo row col-md-12">
+                            <div class="col-md-2">
+                              <label class="radio-inline custom-radio nowrap">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+                                <span>무통장 입금</span>
+                              </label>
+                            </div>
+                            <div class="col-md-2">
+                              <label class="radio-inline custom-radio nowrap">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                <span>실시간 계좌이체</span>
+                              </label>
+                            </div>
+                            <div class="col-md-2">
+                              <label class="radio-inline custom-radio nowrap">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option3">
+                                <span>신용/체크카드</span>
+                              </label>
+                            </div>
+                    </div>
+                    <br><br>
+                    <table class="text-right col-md-8">
+                        <tr>
+                            <td rowspan="4" width="10%">
+                                <img ng-src="assets/img/theme/icon/kameleon/Euro-Coin.svg" src="assets/img/theme/icon/kameleon/Euro-Coin.svg">
+                            </td>
+                            <td width="20%">
+                                상품 가격 : 
+                            </td>
+                            <td width="30%">
+                                000,000,000원
+                            </td>
+                            <td rowspan="4" width="30%">
+                                <div class="button-wrapper"><button type="button" class="btn btn-info" style="width:100px; height:100px">결제</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                할인 가격 : 
+                            </td>
+                            <td>
+                                000,000,000원
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                배송비 : 
+                            </td>
+                            <td>
+                                000,000원
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                결제 예정 금액 : 
+                            </td>
+                            <td>
+                                000,000,000원
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="col-md-12"></div>
+                </ba-wizard-step>
     </ba-wizard>
+    <br><br>
     <!-- 이전 다음 버튼 -->
         <nav>
             <ul class="pager ba-wizard-pager">
