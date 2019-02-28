@@ -1,0 +1,137 @@
+<!-- 
+    주문 및 배송지 확인 화면
+
+    필요 이벤트 : 1. 주문 목록 수정/삭제 처리
+                 2. 신규배송지 저장 버튼 클릭시 신규 배송지 목록에 추가
+                 3. 이전 버튼 : 주문을 클릭한 화면으로 이동
+                    다음 버튼 : 현재 값들을 유지하고
+    DB 필요 데이터 : 1. 상품정보(이미지, 상품명, 판매사, 수량, 상품옵션, 상품가격)
+                    2. 회원정보(배송지)
+ -->
+<div class="panel-body">
+    <ba-wizard class="ng-scope">
+        <div class="ba-wizard">
+            <!-- 상태 진행 위자드 바 -->
+            <div class="ba-wizard-navigation-container">
+                <div class="ba-wizard-navigation active">
+                    주문 및 배송지 확인
+                </div>
+                <div class="ba-wizard-navigation">
+                    제휴할인 및 결제
+                </div>
+                <div class="ba-wizard-navigation">
+                    주문(결제)완료
+                </div>
+            </div>
+        </div>
+        <ba-wizard-step>
+            <form name="orderConfirm">
+                <div class="row">
+                        <div class="col-md-12">
+                            <!-- 주문 확인 테이블 -->
+                            <table class="table table-bordered table-hover table-condensed text-center">
+                                <tr>  
+                                    <td>순번</td>
+                                    <td>상품 이미지</td>
+                                    <td>상품명</td>
+                                    <td>판매사</td>
+                                    <td>상품수량</td>
+                                    <td>상품옵션</td>
+                                    <td>상품가격</td>
+                                    <td>변경/삭제</td>
+                                </tr>
+                                <!-- 
+                                    주문 확인 반복 구간
+                                    <tr ng-repeat="user in users" class="editable-row"> 
+                                -->
+                                <tr class="editable-row">
+                                    <td>1</td>
+                                    <td>이미지</td>
+                                    <td>간짬뽕</td>
+                                    <td>삼양</td>
+                                    <td>2</td>
+                                    <td>5개묶음</td>
+                                    <td>5,000원</td>
+                                    <td>
+                                        <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                                shown="inserted == user">
+                                            <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+                                            Save
+                                            </button>
+                                            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                                            Cancel
+                                            </button>
+                                        </form>
+                                        <div class="buttons" ng-show="!rowform.$visible">
+                                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="editable-row">
+                                    <td>2</td>
+                                    <td >이미지</td>
+                                    <td >로봇청소기</td>
+                                    <td >하이마트</td>
+                                    <td >1</td>
+                                    <td >검정</td>
+                                    <td >140,000원</td>
+                                    <td>
+                                        <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                                shown="inserted == user">
+                                            <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+                                            Save
+                                            </button>
+                                            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                                            Cancel
+                                            </button>
+                                        </form>
+                                        <div class="buttons" ng-show="!rowform.$visible">
+                                            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                                            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="black-muted-bg">
+                                    <td colspan="8" >
+                                        총 주문 가격 : 145,000원
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--  
+                    배송지 확인
+                -->
+                <div ba-panel
+                ba-panel-class="tabs-panel xsmall-panel witd-scroll" class="col-md-12">
+                 <uib-tabset class="tabs-left">
+                   <uib-tab heading="기존배송지">
+                     <p>
+                            경기도 김포시 xxxxxxx xxxxxxxxxxxx 
+                    </p>
+                   </uib-tab>
+                   <uib-tab heading="신규배송지">
+                     <p>
+                        <textarea placeholder="배송지 입력" class="form-control" id="textarea01"></textarea>
+                    </p>
+                    <p class ='text-right'>
+                        <input type="button" class="btn btn-primary" value="저장">
+                    </p>
+                   </uib-tab>
+                 </uib-tabset>
+               </div>
+            </form>
+        </ba-wizard-step>
+    </ba-wizard>
+    <!-- 이전 다음 버튼 -->
+        <nav>
+            <ul class="pager ba-wizard-pager">
+                <li class="previous"><button  ng-disabled="$baWizardController.isFirstTab()" ng-click="$baWizardController.previousTab()" type="button" class=" btn btn-primary"><span aria-hidden="true">&larr;</span> previous</button></li>
+                <li class="next"> <button ng-disabled="$baWizardController.isLastTab()" ng-click="$baWizardController.nextTab()" type="button" class="btn btn-primary">next <span aria-hidden="true">&rarr;</span></button></li>
+            </ul>
+        </nav>
+</div>
+    
+    
