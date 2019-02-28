@@ -2,7 +2,8 @@
     'use strict';
   
     angular.module('BlurAdmin.pages.order', 
-      ['BlurAdmin.pages.orderConfrim']
+      ['BlurAdmin.pages.order.orderConfrim'
+      ,'BlurAdmin.pages.order.orderPayment']
     ).config(routeConfig);
   
     /** @ngInject */

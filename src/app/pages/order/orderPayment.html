@@ -1,0 +1,63 @@
+<!-- 
+    제휴할인 및 결제 화면
+
+    필요 이벤트 : 1. 주문 목록 수정/삭제 처리
+                 2. 신규배송지 저장 버튼 클릭시 신규 배송지 목록에 추가
+                 3. 이전 버튼 : 주문을 클릭한 화면으로 이동
+                    다음 버튼 : 현재 값들을 유지하고
+    DB 필요 데이터 : 1. 상품정보(이미지, 상품명, 판매사, 수량, 상품옵션, 상품가격)
+                    2. 회원정보(배송지)
+ -->
+<div class="panel-body">
+    <ba-wizard class="ng-scope">
+        <div class="ba-wizard">
+            <!-- 상태 진행 위자드 바 -->
+            <div class="ba-wizard-navigation-container">
+                <div class="ba-wizard-navigation">
+                    주문 및 배송지 확인
+                </div>
+                <div class="ba-wizard-navigation active">
+                    제휴할인 및 결제
+                </div>
+                <div class="ba-wizard-navigation">
+                    주문(결제)완료
+                </div>
+            </div>
+        </div>
+        <ba-wizard-step>
+                <form name="discountAlliance">
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <!-- 제휴 할인 목록 -->
+                                        <!-- 
+                                            제휴 할인 반복 구간
+                                            <tr ng-repeat="user in users" class="editable-row"> 
+                                        -->
+                                        <div>
+                                            <img ng-src="assets/img/theme/icon/kameleon/Cheese.svg" src="assets/img/theme/icon/kameleon/Cheese.svg"> 
+                                            <input type="text" class="form-control" id="inputWarning1"style="width:100px;display:inline;">
+                                            <button class="btn btn-primary editable-table-button">사용</button>
+                                            <button class="btn btn-danger editable-table-button" style="width:100px">전액 사용</button>
+                                        </div>
+                                        <div>
+                                            <img ng-src="assets/img/theme/icon/kameleon/Medal-2.svg" src="assets/img/theme/icon/kameleon/Medal-2.svg">
+                                            <input type="text" class="form-control" id="inputWarning1"style="width:100px;display:inline;">
+                                            <button class="btn btn-primary editable-table-button">사용</button>
+                                            <button class="btn btn-danger editable-table-button" style="width:100px">전액 사용</button>
+                                        </div>
+                                    </table>
+                                </div>
+                        </div>
+                    </form>
+        </ba-wizard-step>
+    </ba-wizard>
+    <!-- 이전 다음 버튼 -->
+        <nav>
+            <ul class="pager ba-wizard-pager">
+                <li class="previous"><button  ng-disabled="$baWizardController.isFirstTab()" ng-click="$baWizardController.previousTab()" type="button" class=" btn btn-primary"><span aria-hidden="true">&larr;</span> previous</button></li>
+                <li class="next"> <button ng-disabled="$baWizardController.isLastTab()" ng-click="$baWizardController.nextTab()" type="button" class="btn btn-primary">next <span aria-hidden="true">&rarr;</span></button></li>
+            </ul>
+        </nav>
+</div>
+    
+    
