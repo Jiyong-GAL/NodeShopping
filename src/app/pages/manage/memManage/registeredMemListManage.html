@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="회원 리스트" ba-panel-class="with-scroll">
+          <div class="horizontal-scroll">
+              <div class="form-group select-page-size-wrap ">
+                <label>Rows on page
+                  <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                          ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+                  </select>
+                </label>
+              </div>
+              <table class="table" st-table="smartTableData">
+                <thead>
+                <tr class="sortable ">
+                  <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                  <th st-sort="_id">_ID</th>
+                  <th st-sort="memName">회원명</th>
+                  <th st-sort="memId">아이디</th>
+                  <th st-sort="memPhoneNum">핸드폰</th>
+                  <th st-sort="memEmail">이메일</th>
+                  <th st-sort="lsPurchaseDate">최종구매일</th>
+                  <th st-sort="paymentAmount">결제금액</th>
+                  <th st-sort="purchaseCount">구매횟수</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th><input st-search="_id" placeholder="_id" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="memName" placeholder="회원명" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="memId" placeholder="아이디" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="memPhoneNum" placeholder="핸드폰" class="input-sm form-control search-input"
+                  type="search"/></th>
+                  <th><input st-search="memEmail" placeholder="이메일" class="input-sm form-control search-input"
+                      type="search"/></th>    
+                  <th><input st-search="lsPurchaseDate" placeholder="최종구매일" class="input-sm form-control search-input" type="search"/>
+                  </th>
+                  <th><input st-search="paymentAmount" placeholder="결제금액" class="input-sm form-control search-input" type="search"/>
+                  </th>
+                  <th><input st-search="purchaseCount" placeholder="구매횟수" class="input-sm form-control search-input" type="search"/>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in smartTableData">
+                  <td class="table-id">{{item._id}}</td>
+                  <td>{{item.memName}}</td>
+                  <td>{{item.memId}}</td>
+                  <td>{{item.memPhoneNum}}</td>
+                  <td><a class="email-link" ng-href="mailto:{{item.memEmail}}">{{item.memEmail}}</a></td>
+                  <td>{{item.lsPurchaseDate}}</td>
+                  <td>{{item.paymentAmount}}</td>
+                  <td>{{item.purchaseCount}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <td colspan="9" class="text-center">
+                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                  </td>
+                </tr>
+                </tfoot>
+              </table>
+          </div>
+      </div>
+    </div>
+</div>
+  

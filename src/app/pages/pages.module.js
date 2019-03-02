@@ -18,7 +18,6 @@
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.manage',
     'BlurAdmin.pages.order',
-    'BlurAdmin.pages.mem_manage'
   ])
       .config(routeConfig); 
 

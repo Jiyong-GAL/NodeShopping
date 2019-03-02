@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="탈퇴 회원 리스트" ba-panel-class="with-scroll">
+          <div class="horizontal-scroll">
+              <div class="form-group select-page-size-wrap ">
+                <label>Rows on page
+                  <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                          ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+                  </select>
+                </label>
+              </div>
+              <table class="table" st-table="smartTableData">
+                <thead>
+                <tr class="sortable ">
+                  <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                  <th st-sort="_id">_ID</th>
+                  <th st-sort="memId">아이디</th>
+                  <th st-sort="dateOfWithdrawal">탈퇴일</th>
+                  <th st-sort="reasonForWithdrawal">탈퇴이유</th>
+                  <th st-sort="comment">코멘트</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th><input st-search="_id" placeholder="_ID" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="memId" placeholder="아이디" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="dateOfWithdrawal" placeholder="탈퇴일" class="input-sm form-control search-input"
+                  type="search"/></th>
+                  <th><input st-search="reasonForWithdrawal" placeholder="탈퇴이유" class="input-sm form-control search-input"
+                      type="search"/></th>    
+                  <th><input st-search="comment" placeholder="코멘트" class="input-sm form-control search-input" type="search"/>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in smartTableData">
+                  <td class="table-id">{{item._id}}</td>
+                  <td>{{item.memId}}</td>
+                  <td>{{item.dateOfWithdrawal}}</td>
+                  <td>{{item.reasonForWithdrawal}}</a></td>
+                  <td>{{item.comment}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <td colspan="6" class="text-center">
+                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                  </td>
+                </tr>
+                </tfoot>
+              </table>
+          </div>
+      </div>
+    </div>
+</div>
+  
+  
+  
+  
+ 
