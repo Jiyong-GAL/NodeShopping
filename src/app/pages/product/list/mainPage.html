@@ -1,0 +1,46 @@
+<uib-tabset active="$tabSetStatus.activeTab">
+  <uib-tab heading="가전*PC">
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지1.jpg">플레이스테이션4 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지2.jpg">플레이스테이션4pro </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지3.jpg">마인크래프트 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지4.jpg">플레이스테이션4 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지5.jpg">플레이스테이션4 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지6.jpg">게임2 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지7.jpg">게임 </div>
+    <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지8.jpg">플레이스테이션4스킨</div>
+  </uib-tab>
+  <uib-tab heading="스포츠">
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지9.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지10.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지11.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지12.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지13.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지14.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지15.jpg"></div>
+      <div class="col-md-3" style="border-color:black;border:solid black 1px"><img src="../../../../img/이미지16.jpg"></div>
+  </uib-tab>
+  <uib-tab ng-init="$dropdownTabActive = 1" class="with-dropdown">
+    <uib-tab-heading uib-dropdown>
+      <a uib-dropdown-toggle ng-click="$event.stopPropagation()">
+        Dropdown tab <i class="caret"></i>
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu>
+        <li><a ng-click="$dropdownTabActive = 1; $tabSetStatus.activeTab = 3">Tab 1</a></li>
+        <li><a ng-click="$dropdownTabActive = 2; $tabSetStatus.activeTab = 3">Tab 2</a></li>
+      </ul>
+    </uib-tab-heading>
+    <div ng-show="$dropdownTabActive == 1">
+      <p>
+        Success is ... knowing your purpose in life, growing to reach your maximum potential, and sowing seeds that
+        benefit others.
+      </p>
+
+      <p>Failure is the condiment that gives success its flavor.</p>
+    </div>
+    <div ng-show="$dropdownTabActive == 2">
+      <p class="text-center">
+        <button class="btn btn-danger">I'm just a dummy button</button>
+      </p>
+    </div>
+  </uib-tab>
+</uib-tabset>
