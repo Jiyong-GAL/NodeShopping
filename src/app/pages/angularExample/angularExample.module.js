@@ -12,7 +12,7 @@
           templateUrl: 'app/pages/angularExample/angularExample.html',
           title: 'angularExample',
           sidebarMeta: { 
-            icon: 'fa fa fa-building-o',
+            icon: 'fa fa fa-bug',
             order: 2000
           },
         });
