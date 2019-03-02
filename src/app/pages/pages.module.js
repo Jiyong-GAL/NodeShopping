@@ -15,7 +15,7 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.manage',
+    'BlurAdmin.pages.product',
     'BlurAdmin.pages.testpage',
     'BlurAdmin.pages.order',
     'BlurAdmin.pages.mem_manage',
