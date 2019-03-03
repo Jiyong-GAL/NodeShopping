@@ -26,12 +26,10 @@
         function init(){
           var fruits = $scope.data.fruitList;
           for(var i in fruits){
-            console.log('과일 >',fruits[i]+);
+            console.log('과일 >',fruits[i]+'\n');
           }
         }
     }
-  
-
 
   })();
   
