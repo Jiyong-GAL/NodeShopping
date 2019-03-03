@@ -31,11 +31,7 @@
         });
     //  $urlRouterProvider.when('/manage','/manage/incHeader');
     }
-<<<<<<< HEAD
-    
-=======
   })();
-
 
 
   (function () {
@@ -61,5 +57,4 @@
           },
         });
     }
->>>>>>> 586cb527069a0a2d3c813d1607b75c12a40f8470
   })();
