@@ -1,0 +1,123 @@
+<form>
+<div class="form-group">
+<div class="col-md-4">
+<div class="ng-cloak" ng-controller="SelectpickerPanelCtrl as selectpickerVm">
+    <div class="form-group">
+      <ui-select ng-model="selectpickerVm.selectedItem.selected"
+                 class="btn-group bootstrap-select form-control"
+                 ng-disabled="false"
+                 append-to-body="true"
+                 search-enabled="false">
+        <ui-select-match placeholder="Standard Select">
+          <span> 주문번호</span>
+        </ui-select-match>
+        <ui-select-choices repeat="standardItem in selectpickerVm.standardSelectItems | filter: $select.search">
+          <span ng-bind-html="standardItem.label"></span>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+</div>
+</div>
+<div class="col-md-4">
+    <input type="text" class="form-control" id="input01" placeholder="Text">
+</div>
+</div>
+<div class="form-group">
+    <div class="col-sm-8">
+        <input type="text" tag-input="primary" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" placeholder="Add Tag">
+    </div>
+</div>    
+<div class="form-group">
+    <div class="col-sm-4" ng-controller="datepickerpopupCtrl">
+          <h4>Popup</h4>
+           <label>Selected date is: <em>{{dt | date:'fullDate' }}</em></label>
+            <p class="input-group">
+             <input type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" ng-model="dt" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+               <span class="input-group-btn">
+                 <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+               </span>
+            </p>
+    </div>
+    <div class="col-sm-4" ng-controller="datepickerpopupCtrl">
+            <h4>Popup</h4>
+             <label>Selected date is: <em>{{dt | date:'fullDate' }}</em></label>
+              <p class="input-group">
+               <input type="text" class="form-control" uib-datepicker-popup="{{format}}" datepicker-options="options" ng-model="dt" is-open="opened" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                 <span class="input-group-btn">
+                   <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                 </span>
+              </p>
+      </div>
+</div>
+</form>
+
+<form name="orderConfirm">
+        <div class="row">
+                <div class="col-md-12">
+                    <!-- 주문 확인 테이블 -->
+                    <table class="table table-bordered table-hover table-condensed text-center">
+                        <tr>  
+                            <td>순번</td>
+                            <td>주무번호</td>
+                            <td>주문자</td>
+                            <td>상품명/옵션</td>
+                            <td>상품수량</td>
+                            <td>금액</td>
+                            <td>상태</td>
+                            <td>변경/삭제</td>
+                        </tr>
+                        <!-- 
+                            주문 확인 반복 구간
+                            <tr ng-repeat="user in users" class="editable-row"> 
+                        -->
+                        <tr class="editable-row">
+                            <td>1</td>
+                            <td>12312</td>
+                            <td>간짬뽕</td>
+                            <td>니트/M 외 1</td>
+                            <td>1</td>
+                            <td>20000원</td>
+                            <td>배송중</td>
+                            <td>
+                                <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                        shown="inserted == user">
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                                    더보기
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="editable-row">
+                            <td>2</td>
+                            <td>123124</td>
+                            <td>양수영</td>
+                            <td>청바지/XL 외 3</td>
+                            <td>1</td>
+                            <td>50000원</td>
+                            <td>입금완료</td>
+                            <td>
+                                <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                        shown="inserted == user">
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                                    더보기
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="black-muted-bg">
+                            <td colspan="8" >
+                                총 주문 가격 : 145,000원
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
