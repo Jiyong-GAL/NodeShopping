@@ -1,0 +1,29 @@
+
+<div ng-controller="angularExampleController">
+    <h2>양방향 데이터 바인딩</h2>
+    이름 : <input type=text ng-model="data.name" ng-change="event.inputChange()"> <br>
+    나이 : <input type=text ng-model="data.age" ng-change="event.inputChange()">
+    <br><br>
+    
+    <h2>반복</h2>
+    
+    <div ng-repeat ="item in data.fruitList">
+        과일 {{$index}} : {{item}}
+    </div>
+    <br><br>
+
+    <h2>분기</h2>
+    <div ng-if="data.booleanTrue">
+        TRUE
+    </div>
+    <div ng-if="!data.booleanFalse">
+        FALSE
+    </div>
+    <div ng-show = "data.booleanTrue">
+        TRUE
+    </div>
+    <div ng-show = "!data.booleanFalse">
+        FALSE
+    </div>
+
+</div>

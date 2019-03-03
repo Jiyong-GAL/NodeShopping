@@ -506,7 +506,7 @@ h1:hover .hash-link, h2:hover .hash-link, h3:hover .hash-link, h4:hover .hash-li
 .home-divider {
     border-top-color: #bbb;
     margin: 0 auto;
-    width: 400px
+    width: 100%;
 }
 
 .skinny-row:after {

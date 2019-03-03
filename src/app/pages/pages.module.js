@@ -7,7 +7,6 @@
 
   angular.module('BlurAdmin.pages', [
     'ui.router',
-
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
@@ -16,8 +15,11 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.manage',
+    'BlurAdmin.pages.product',
+    'BlurAdmin.pages.testpage',
     'BlurAdmin.pages.order',
+    'BlurAdmin.pages.mem_manage',
+    'BlurAdmin.pages.angularExample'
   ])
       .config(routeConfig); 
 
