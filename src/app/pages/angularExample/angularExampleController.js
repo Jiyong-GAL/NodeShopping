@@ -16,14 +16,20 @@
 
         $scope.event ={
           inputChange : change
+          , init : init()
         };
         
         function change(){
           console.log('name >> ',$scope.data.name,'\nage >> ',$scope.data.age);
         }
-    }
-  
 
+        function init(){
+          var fruits = $scope.data.fruitList;
+          for(var i in fruits){
+            console.log('과일 >',fruits[i]+'\n');
+          }
+        }
+    }
 
   })();
   
