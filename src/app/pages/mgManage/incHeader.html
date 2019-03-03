@@ -7,17 +7,14 @@
           <ul class="dropdown-menu" uib-dropdown-menu>
             <li><a ng-click="$dropdownTabActive = 1; $tabSetStatus.activeTab = 3">회원 리스트</a></li>
             <li><a ng-click="$dropdownTabActive = 2; $tabSetStatus.activeTab = 3">탈퇴 회원 리스트</a></li>
-            <li><a ng-click="$dropdownTabActive = 3; $tabSetStatus.activeTab = 3">관리자 리스트</a></li>
-            <li><a ng-click="$dropdownTabActive = 4; $tabSetStatus.activeTab = 3">회원 차트 데이터</a></li>
+            <li><a ng-click="$dropdownTabActive = 3; $tabSetStatus.activeTab = 3">회원 차트 데이터</a></li>
           </ul>
         </uib-tab-heading>
         <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/mgManage/memManage/registeredMemListManage.html'">
         </div>
         <div ng-show="$dropdownTabActive == 2" ng-include="'app/pages/mgManage/memManage/withdrawalMemListManage.html'">
-        </div>
-        <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/mgManage/memManage/adminListManage.html'">
-        </div>        
-        <div ng-show="$dropdownTabActive == 4" ng-include="'app/pages/mgManage/memManage/memChartData.html'">
+        </div>  
+        <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/mgManage/memManage/memChartData.html'">
         </div>            
       </uib-tab>
     <uib-tab ng-init="$dropdownTabActive = 1" class="with-dropdown">
@@ -37,5 +34,17 @@
       </div>
       <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/mgManage/goodsManage/goodsBrandManage.html'">
       </div>      
+    </uib-tab>
+    <uib-tab ng-init="$dropdownTabActive = 1" class="with-dropdown">
+      <uib-tab-heading uib-dropdown>
+        <a uib-dropdown-toggle ng-click="$event.stopPropagation()">
+          관리자 관리 <i class="caret"></i>
+        </a>
+        <ul class="dropdown-menu" uib-dropdown-menu>
+          <li><a ng-click="$dropdownTabActive = 1; $tabSetStatus.activeTab = 3">관리자 리스트 관리</a></li>
+        </ul>        
+      </uib-tab-heading>
+      <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/mgManage/adminManage/adminListManage.html'">
+      </div>         
     </uib-tab>
   </uib-tabset>
