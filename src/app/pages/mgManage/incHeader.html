@@ -11,13 +11,13 @@
             <li><a ng-click="$dropdownTabActive = 4; $tabSetStatus.activeTab = 3">회원 차트 데이터</a></li>
           </ul>
         </uib-tab-heading>
-        <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/manage/memManage/registeredMemListManage.html'">
+        <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/mgManage/memManage/registeredMemListManage.html'">
         </div>
-        <div ng-show="$dropdownTabActive == 2" ng-include="'app/pages/manage/memManage/withdrawalMemListManage.html'">
+        <div ng-show="$dropdownTabActive == 2" ng-include="'app/pages/mgManage/memManage/withdrawalMemListManage.html'">
         </div>
-        <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/manage/memManage/adminListManage.html'">
+        <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/mgManage/memManage/adminListManage.html'">
         </div>        
-        <div ng-show="$dropdownTabActive == 4" ng-include="'app/pages/manage/memManage/memChartData.html'">
+        <div ng-show="$dropdownTabActive == 4" ng-include="'app/pages/mgManage/memManage/memChartData.html'">
         </div>            
       </uib-tab>
     <uib-tab ng-init="$dropdownTabActive = 1" class="with-dropdown">
@@ -31,11 +31,11 @@
           <li><a ng-click="$dropdownTabActive = 3; $tabSetStatus.activeTab = 3">브랜드 관리</a></li>
         </ul>
       </uib-tab-heading>
-      <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/manage/goodsManage/goodsCategoryManage.html'">
+      <div ng-show="$dropdownTabActive == 1" ng-include="'app/pages/mgManage/goodsManage/goodsCategoryManage.html'">
       </div>
-      <div ng-show="$dropdownTabActive == 2" ng-include="'app/pages/manage/goodsManage/goodsManage.html'">
+      <div ng-show="$dropdownTabActive == 2" ng-include="'app/pages/mgManage/goodsManage/goodsManage.html'">
       </div>
-      <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/manage/goodsManage/goodsBrandManage.html'">
+      <div ng-show="$dropdownTabActive == 3" ng-include="'app/pages/mgManage/goodsManage/goodsBrandManage.html'">
       </div>      
     </uib-tab>
   </uib-tabset>
