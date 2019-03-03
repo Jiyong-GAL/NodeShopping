@@ -17,15 +17,12 @@
     function routeConfig($stateProvider) {
         $stateProvider
         .state('manage', {
-<<<<<<< HEAD
           url: '/manage',   
           templateUrl: 'app/pages/manage/incHeader.html',
-=======
           url: '/manage',
           template : '<ui-view  autoscroll="true" autoscroll-body-top></ui-view>',
           //templateUrl: 'app/pages/manage/manage.html',
           controller: 'ModalsPageCtrl',
->>>>>>> 586cb527069a0a2d3c813d1607b75c12a40f8470
           title: '관리자 페이지',
           sidebarMeta: {
             icon: 'ion-gear-a',
