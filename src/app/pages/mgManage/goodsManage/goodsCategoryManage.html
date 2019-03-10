@@ -1,7 +1,10 @@
 <div class="row" ng-controller="treeCtrl">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div ba-panel ba-panel-title="카테고리 관리" ba-panel-class="with-scroll tree-panel">
         <div class="row">
+          <div class="col-sm-8">
+            <div js-tree="basicConfig" ng-model="treeData" should-apply="applyModelChanges()" tree="basicTree" tree-events="ready:readyCB"></div>
+          </div>          
           <div class="col-sm-4">
             <div class="control-side text-center">
               <div>
@@ -23,9 +26,6 @@
                 <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
               </div>                           
             </div>
-          </div>
-          <div class="col-sm-8">
-            <div js-tree="basicConfig" ng-model="treeData" should-apply="applyModelChanges()" tree="basicTree" tree-events="ready:readyCB"></div>
           </div>
         </div>
       </div>

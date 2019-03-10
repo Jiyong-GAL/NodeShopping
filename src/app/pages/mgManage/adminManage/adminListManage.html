@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row" ng-controller="ModalsPageCtrl">
   <div class="col-md-12">
     <div ba-panel ba-panel-title="관리자리스트" ba-panel-class="with-scroll">
       <div class="add-row-editable-table">
-        <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="open('app/pages/mgManage/adminManage/adminModal.html', 'md')">관리자 등록</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="open('app/pages/mgManage/adminManage/addAdminModal.html', 'md')">관리자 등록</button>
       </div>
       <table class="table table-bordered table-hover table-condensed">
         <tr>
@@ -58,7 +58,7 @@
               </button>
             </form>
             <div class="buttons" ng-show="!rowform.$visible">
-              <button class="btn btn-primary editable-table-button btn-xs" ng-click="open('app/pages/mgManage/adminManage/adminModal.html', 'md')">Edit</button>
+              <button class="btn btn-primary editable-table-button btn-xs" ng-click="open('app/pages/mgManage/adminManage/editAdminModal.html', 'md')">Edit</button>
             </div>
           </td>
         </tr>

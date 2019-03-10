@@ -14,8 +14,7 @@
       .state('mgManage', {
         url: '/mgManage',
         templateUrl: 'app/pages/mgManage/incHeader.html',
-        title: '관리자페이지2',
-        controller: 'ModalsPageCtrl',
+        title: '회원및상품관리',
         sidebarMeta: {
           icon: 'ion-gear-a',
           order: 2000,
