@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.mgManage')
+  angular.module('BlurAdmin.pages.mgManage.goodsManage')
        .controller('addGoodsCtrl', addGoodsCtrl);
   /** @ngInject */
   function addGoodsCtrl($scope, $state, $location){
