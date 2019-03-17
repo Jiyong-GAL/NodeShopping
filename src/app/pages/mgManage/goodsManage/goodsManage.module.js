@@ -10,14 +10,14 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('pages.goodsManage', {
+        .state('pages.mgManage.goodsManage', {
           url: '/goodsManage',
-          templateUrl: 'app/pages/manage/goodsManage/goodsManage.html',
+          templateUrl: 'app/pages/mgManage/goodsManage/goodsManage.html',
           title: '상품관리',
         })
-        .state('pages.addGoodsManage', {
+        .state('pages.mgManage.addGoodsManage', {
           url: '/addGoodsManage',
-          templateUrl: 'app/pages/manage/goodsManage/addGoods.html',
+          templateUrl: 'app/pages/mgManage/goodsManage/addGoods.html',
           title: '상품등록',
         })
   }
