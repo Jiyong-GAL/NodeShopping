@@ -20,6 +20,11 @@
           templateUrl: 'app/pages/mgManage/goodsManage/addGoods.html',
           title: '상품등록',
         })
+        .state('editGoods', {
+          url: '/editGoods',
+          templateUrl: 'app/pages/mgManage/goodsManage/editGoods.html',
+          title: '상품수정',
+        })
   }
 
 })();

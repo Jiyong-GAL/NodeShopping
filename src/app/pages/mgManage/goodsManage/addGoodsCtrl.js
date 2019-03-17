@@ -6,10 +6,17 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.mgManage.goodsManage')
-       .controller('addGoodsCtrl', addGoodsCtrl);
+       .controller('addGoodsCtrl', addGoodsCtrl)
+       .controller('editGoodsCtrl', editGoodsCtrl);
   /** @ngInject */
   function addGoodsCtrl($scope, $state, $location){
     $scope.addGoods = function(page){
+      $state.go(page);
+    }
+  }
+
+  function editGoodsCtrl($scope, $state, $location){
+    $scope.editGoods = function(page){
       $state.go(page);
     }
   }

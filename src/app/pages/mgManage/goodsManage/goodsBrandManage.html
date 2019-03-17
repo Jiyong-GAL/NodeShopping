@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="ModalsPageCtrl" >
     <div class="col-md-12">
       <div ba-panel ba-panel-title="브랜드 관리" ba-panel-class="with-scroll">
           <div class="add-row-editable-table">
@@ -52,7 +52,7 @@
                     </form>
                     <div class="buttons" ng-show="!rowform.$visible">
                       <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="open('app/pages/mgManage/goodsManage/deleteConfirmModal.html', 'md')">Delete</button>
                     </div>
                   </td>
                 </tr>

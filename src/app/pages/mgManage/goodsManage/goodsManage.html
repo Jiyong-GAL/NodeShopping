@@ -1,8 +1,8 @@
-<div class="row" ng-controller="addGoodsCtrl">
+<div class="row" ng-controller="ModalsPageCtrl" >
     <div class="col-md-12">
       <div ba-panel ba-panel-title="상품 관리" ba-panel-class="with-scroll">
           <div class="add-row-editable-table">
-              <button class="btn btn-primary" ng-click="addGoods('addGoods')">상품 등록</button>
+              <button ng-controller="addGoodsCtrl" class="btn btn-primary" ng-click="addGoods('addGoods')">상품 등록</button>
             </div>
             <table class="table table-bordered table-hover table-condensed">
               <tr>
@@ -41,18 +41,9 @@
                       </span>
                   </td>                  
                   <td>
-                    <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
-                          shown="inserted == user">
-                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
-                        Save
-                      </button>
-                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
-                        Cancel
-                      </button>
-                    </form>
                     <div class="buttons" ng-show="!rowform.$visible">
-                      <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-                      <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                        <button ng-controller="editGoodsCtrl" class="btn btn-primary editable-table-button btn-xs" ng-click="editGoods('editGoods')">Edit</button>
+                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="open('app/pages/mgManage/goodsManage/deleteConfirmModal.html', 'md')">Delete</button>
                     </div>
                   </td>
                 </tr>
