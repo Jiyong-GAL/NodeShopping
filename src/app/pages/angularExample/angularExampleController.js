@@ -5,7 +5,7 @@
       .controller('angularExampleController', angularExampleController);
       
       /** @ngInject */
-    function angularExampleController($scope) {
+    function angularExampleController($scope, restService) {
         $scope.data = {
           name : '홍길동'
          ,age : 20
@@ -16,6 +16,7 @@
 
         $scope.event ={
           inputChange : change
+          , test : test
           , init : init()
         };
         
@@ -28,6 +29,16 @@
           for(var i in fruits){
             console.log('과일 >',fruits[i]+'\n');
           }
+        }
+
+        function test(){
+          var params = {
+            data:{
+              name : '혜웅'
+              ,job : false
+            }
+          };
+          restService.httpSend('404',params);
         }
     }
 
