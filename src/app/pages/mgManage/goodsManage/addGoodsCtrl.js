@@ -8,11 +8,11 @@
   angular.module('BlurAdmin.pages.mgManage')
        .controller('addGoodsCtrl', addGoodsCtrl);
   /** @ngInject */
-  function addGoodsCtrl($scope, $location) {
-      $scope.addGoods = function(){
-        $location.path('app/pages/mgManage/goodsManage/addGoodsModal1.html');
-      }
+  function addGoodsCtrl($scope, $state, $location){
+    $scope.addGoods = function(page){
+      $state.go(page);
     }
+  }
 
     
 })();
